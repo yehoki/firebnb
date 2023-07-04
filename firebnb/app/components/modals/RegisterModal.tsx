@@ -44,6 +44,9 @@ const RegisterModal = () => {
         body: JSON.stringify(data),
       });
       if (res.ok) {
+        toast.success('Account successfully created');
+        registerModal.onClose();
+        loginModal.onOpen();
         return res.json();
       }
       throw new Error(`${res.status}:${res.statusText}`);
